@@ -12,7 +12,7 @@ logOutBtn.addEventListener('click', (event)=>{
 //main page loaded but not logged in -> redirect to homepage
 let checkLogIn = () => {
   if(localStorage.getItem('authInfo') === null){
-    window.location.href = "http://127.0.0.1:5500/Frontend/homepage.html";
+    window.location.href = "https://wevdebelopers.github.io/YoutubeFilteredDeployment/homepage.html";
   }else{
     // console.log("logged in");
   }
@@ -33,7 +33,7 @@ OAuth.addEventListener('click', function() {
     form.setAttribute("action", oauth2ep);
     let params = {
         "client_id" : "182985029199-aq3p34sjqeteo762eahvlllbpffjegns.apps.googleusercontent.com",
-        "redirect_uri" : "http://127.0.0.1:5500/Frontend/index.html",
+        "redirect_uri" : "https://wevdebelopers.github.io/YoutubeFilteredDeployment/index.html",
         "response_type" : "token",
         "scope" : "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/youtube",
         "include_granted_scopes" : "true",
@@ -68,7 +68,7 @@ if(Object.keys(params).length > 0)
 }
 
 //hiding the access token
-window.history.pushState({}, document.title,"/Frontend/" + "index.html");
+window.history.pushState({}, document.title,"/YoutubeFilteredDeployment/index.html");
 
 
 //storing user data
@@ -84,7 +84,7 @@ function logout()
     }
   })
   .then((data) => {
-    window.location.href = "http://127.0.0.1:5500/Frontend/homepage.html";
+    window.location.href = "https://wevdebelopers.github.io/YoutubeFilteredDeployment/homepage.html";
   })
   //remove from local storage
   localStorage.removeItem("authInfo");

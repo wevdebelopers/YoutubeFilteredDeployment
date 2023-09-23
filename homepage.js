@@ -50,7 +50,7 @@ OAuth.addEventListener('click', function() {
     form.setAttribute("action", oauth2ep);
     let params = {
         "client_id" : "182985029199-aq3p34sjqeteo762eahvlllbpffjegns.apps.googleusercontent.com",
-        "redirect_uri" : "http://127.0.0.1:5500/Frontend/index.html",
+        "redirect_uri" : "https://wevdebelopers.github.io/YoutubeFilteredDeployment/index.html",
         "response_type" : "token",
         "scope" : "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/youtube",
         "include_granted_scopes" : "true",
