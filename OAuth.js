@@ -104,8 +104,8 @@ fetch("https://www.googleapis.com/oauth2/v3/userinfo",{
 
 // api key 
 export const token = process.env['ApiKey'];
-console.log(token)
-let ApiKey = "&key=AIzaSyD9DQ5vZPpX8eWpF6z8-E7c1N2Ts8V4kAA";
+
+let ApiKey = token;
 
 //Fetching and Showing the subscribed channels list.
 let channelContainer = document.getElementById("channelContainer");
