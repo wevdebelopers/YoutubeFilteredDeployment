@@ -163,6 +163,7 @@ body{
 }
 
 .header__account_photo img{
+    margin-left: 100%;
     width: 100%;
     height: 2.5em;
 }
@@ -238,7 +239,7 @@ body{
     border-bottom: 1px solid rgb(192, 187, 187);
 }
 
-.sidebar__home, .sidebar__history, .sidebar__library, .sidebar__watchlater{
+/* .sidebar__home, .sidebar__history, .sidebar__library, .sidebar__watchlater{
     display: flex;
     padding-left:1em;
     padding-right:1em;
@@ -246,7 +247,7 @@ body{
     color: white;
     border-radius: 15px;
     transition: all 0.17s;
-}
+} */
 
 .sidebar__home:hover, .sidebar__history:hover, .sidebar__library:hover, .sidebar__watchlater:hover{
     background-color: hsl(0, 0%, 18.82%);
