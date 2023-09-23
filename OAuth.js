@@ -209,7 +209,7 @@ async function getPlaylist(URL){
       }
     })
 
-    let returnedData = await response.json(); //console.log(returnedData);
+    let returnedData = await response.json(); console.log(returnedData);
     getPlaylistData(returnedData);
     if(returnedData.nextPageToken)
     {
