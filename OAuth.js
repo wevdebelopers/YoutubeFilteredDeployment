@@ -103,15 +103,14 @@ fetch("https://www.googleapis.com/oauth2/v3/userinfo",{
 })
 
 // api key 
-export const token = process.env['ApiKey'];
 
-let ApiKey = token;
+let gjhths = "&key=AIzaSyD9DQ5vZPpX8eWpF6z8-E7c1N2Ts8V4kAA";
 
 //Fetching and Showing the subscribed channels list.
 let channelContainer = document.getElementById("channelContainer");
 let OrgchannelElement = document.getElementsByClassName("sidebar__subInfo_card")[0];
 let subscriptionsApi = "https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&mine=true&maxResults=50";
-let subscriptionsUrl = subscriptionsApi + ApiKey;
+let subscriptionsUrl = subscriptionsApi + gjhths;
 let channelContentApi = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&maxResults=50"
 let channelPlaylistApi = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&maxResults=50"
 let channelCount = 0;
@@ -167,7 +166,7 @@ function getChannel(returnedData)
 
     channelElement.addEventListener('click', function(){
 
-      let channelContentUrl = channelContentApi + "&id=" + element.snippet.resourceId.channelId + ApiKey;
+      let channelContentUrl = channelContentApi + "&id=" + element.snippet.resourceId.channelId + gjhths;
       ShowChannelPage(channelContentUrl);
 
     })
@@ -175,7 +174,7 @@ function getChannel(returnedData)
   let nextPageToken = '';
   if(returnedData.nextPageToken)
     nextPageToken = "&pageToken=" + returnedData.nextPageToken;
-  subscriptionsUrl = subscriptionsApi + nextPageToken + ApiKey;
+  subscriptionsUrl = subscriptionsApi + nextPageToken + gjhths;
 }
 //
 
@@ -184,7 +183,7 @@ let playlistContainer = document.getElementById("playlistContainer");
 let orgPlaylistElement = document.getElementById("playlistElement");
 let playlistApi = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2CcontentDetails&maxResults=50";
 let playlistItemApi = "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50";
-let playListUrl = playlistApi + "&mine=true" + ApiKey;
+let playListUrl = playlistApi + "&mine=true" + gjhths;
 let playlistCount = 0;
 let playlistItemCount = 0;
 let currentPlaylist = document.getElementById("currentPlaylist");
@@ -216,7 +215,7 @@ async function getPlaylist(URL){
     getPlaylistData(returnedData);
     if(returnedData.nextPageToken)
     {
-      playlistApi + "&mine=true" + + "&pageToken=" + returnedData.nextPageToken + ApiKey;
+      playlistApi + "&mine=true" + + "&pageToken=" + returnedData.nextPageToken + gjhths;
     }
     else
       break;
@@ -224,7 +223,7 @@ async function getPlaylist(URL){
 
   if(opid === false)
   {
-    let x = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus" + ApiKey;
+    let x = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus" + gjhths;
     addPlaylistToLibrary(x);
   }
 } 
@@ -271,7 +270,7 @@ function getPlaylistData(returnedData)
 
         async function getpbi(xid, cnt)
         {
-          let urlfId = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&id=" + xid + ApiKey;
+          let urlfId = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&id=" + xid + gjhths;
           const res = await fetch(urlfId, 
           {
             headers:
@@ -305,7 +304,7 @@ function getPlaylistData(returnedData)
 
           playlistElement.addEventListener('click', function() {
 
-            let playListItemUrl = playlistItemApi + "&playlistId=" + ret.items[0].id + ApiKey;
+            let playListItemUrl = playlistItemApi + "&playlistId=" + ret.items[0].id + gjhths;
 
             currentPlaylist.childNodes[1].textContent = playlistTitle;
             currentPlaylist.childNodes[3].childNodes[1].textContent = channelTitle;
@@ -354,7 +353,7 @@ function getPlaylistData(returnedData)
 
     playlistElement.addEventListener('click', function() {
 
-      let playListItemUrl = playlistItemApi + "&playlistId=" + element.id + ApiKey;
+      let playListItemUrl = playlistItemApi + "&playlistId=" + element.id + gjhths;
 
       currentPlaylist.childNodes[1].textContent = playlistTitle;
       currentPlaylist.childNodes[3].childNodes[1].textContent = channelTitle;
@@ -369,7 +368,7 @@ function getPlaylistData(returnedData)
 
     removeButtonDiv.addEventListener('click', function() {
 
-      let deletePlaylistURL = "https://youtube.googleapis.com/youtube/v3/playlists?id=" + element.id + ApiKey;
+      let deletePlaylistURL = "https://youtube.googleapis.com/youtube/v3/playlists?id=" + element.id + gjhths;
       
       const response = fetch(deletePlaylistURL, {
         method: 'DELETE',
@@ -389,7 +388,7 @@ function getPlaylistData(returnedData)
 // Finding that plalist exist already or not
 
 let idDescription;
-let modifyPlaylistApiUrl = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus" + ApiKey;
+let modifyPlaylistApiUrl = "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet%2Cstatus" + gjhths;
 
 function findId(des, id)
 {
@@ -474,7 +473,7 @@ async function getPlaylistItem(URL, id){
 
     getPlaylistItemData(returnedData1);
     if(returnedData1.nextPageToken)
-      URL = playlistItemApi + "&pageToken=" + returnedData1.nextPageToken + "&playlistId=" + id + ApiKey;
+      URL = playlistItemApi + "&pageToken=" + returnedData1.nextPageToken + "&playlistId=" + id + gjhths;
     else 
       break;
     
@@ -533,7 +532,7 @@ async function getChannelPlaylists(URL, channelId)
     let returnedData = await response.json(); 
     ShowChannelPlayList(returnedData);
     if(returnedData.nextPageToken)
-      URL = channelPlaylistApi + "&pageToken=" + returnedData.nextPageToken + "&channelId=" + channelId + ApiKey;
+      URL = channelPlaylistApi + "&pageToken=" + returnedData.nextPageToken + "&channelId=" + channelId + gjhths;
     else 
       break;
   }
@@ -570,7 +569,7 @@ function ShowChannelPlayList(returnedData)
     channelPlaylistDiv.childNodes[1].childNodes[3].childNodes[1].appendChild(playlistTitleNode);
     channelPlaylistContainerDiv.appendChild(channelPlaylistDiv);
     
-    let URL = playlistItemApi + "&playlistId=" + element.id + ApiKey;
+    let URL = playlistItemApi + "&playlistId=" + element.id + gjhths;
     channelPlaylistDiv.addEventListener('click', ()=>{
 
       let tempUrl = "https://www.googleapis.com/youtube/v3/playlists?id=" + element.id + "&part=snippet";
@@ -625,7 +624,7 @@ function ShowChannelPlayList(returnedData)
   
         playlistElement.addEventListener('click', function() {
 
-          let playListItemUrl = playlistItemApi + "&playlistId=" + element.id + ApiKey;
+          let playListItemUrl = playlistItemApi + "&playlistId=" + element.id + gjhths;
 
           currentPlaylist.childNodes[1].textContent = playlistTitle;
           currentPlaylist.childNodes[3].childNodes[1].textContent = channelTitle;
@@ -669,9 +668,9 @@ async function ShowChannelPage(URL)
   let channelTitle = returnedData2.items[0].snippet.title;
   let channelProfileUrl = returnedData2.items[0].snippet.thumbnails.medium.url;
   let id = returnedData2.items[0].id;
-  let playListUrl = channelPlaylistApi + "&channelId=" + id + ApiKey;
+  let playListUrl = channelPlaylistApi + "&channelId=" + id + gjhths;
   let uploadPlaylistId = returnedData2.items[0].contentDetails.relatedPlaylists.uploads;
-  let uploadPlaylistURL =  playlistItemApi + "&playlistId=" + uploadPlaylistId + ApiKey;
+  let uploadPlaylistURL =  playlistItemApi + "&playlistId=" + uploadPlaylistId + gjhths;
 
   channelPageContainer.childNodes[1].childNodes[1].setAttribute('src', channelProfileUrl);
   channelPageContainer.childNodes[1].childNodes[3].textContent = channelTitle;
@@ -699,7 +698,7 @@ async function GetChannelVideos(URL, uploadPlaylistId)
     let returnedData = await response.json();
     ShowChannelVideos(returnedData);
     if(returnedData.nextPageToken)
-      URL = playlistItemApi + "&pageToken=" + returnedData.nextPageToken + "&playlistId=" + uploadPlaylistId + ApiKey;
+      URL = playlistItemApi + "&pageToken=" + returnedData.nextPageToken + "&playlistId=" + uploadPlaylistId + gjhths;
     else 
       break;
   }
