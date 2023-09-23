@@ -98,7 +98,7 @@ fetch("https://www.googleapis.com/oauth2/v3/userinfo",{
 })
 .then((data) => data.json())
 .then((info) => {
-  console.log(info);
+  //console.log(info);
   document.getElementById('image').setAttribute('src', info.picture);
 })
 
