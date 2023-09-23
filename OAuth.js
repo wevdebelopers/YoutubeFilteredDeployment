@@ -202,7 +202,7 @@ async function getPlaylist(URL){
   playlistContainer.innerHTML = '';
   for(let k = 0; k<100; k++)
   {
-    console.log(URL);
+    //console.log(URL);
     let response = await fetch(URL,{
       headers:{
         "Authorization":`Bearer ${info['access_token']}`,
@@ -210,7 +210,7 @@ async function getPlaylist(URL){
       }
     })
 
-    let returnedData = await response.json(); console.log(returnedData);
+    let returnedData = await response.json(); //console.log(returnedData);
     getPlaylistData(returnedData);
     if(returnedData.nextPageToken)
     {
