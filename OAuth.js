@@ -126,7 +126,7 @@ async function getSubscription(){
       }
     })
 
-    let returnedData = await response.json(); console.log(returnedData);
+    let returnedData = await response.json(); //console.log(returnedData);
 
     getChannel(returnedData);
 
@@ -203,7 +203,7 @@ async function getPlaylist(URL){
       }
     })
 
-    let returnedData = await response.json(); console.log(returnedData);
+    let returnedData = await response.json(); //console.log(returnedData);
     getPlaylistData(returnedData);
     if(returnedData.nextPageToken)
       playlistApi + "&mine=true" + + "&pageToken=" + returnedData.nextPageToken + ApiKey;
