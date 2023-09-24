@@ -69,7 +69,7 @@ if(Object.keys(params).length > 0)
 }
 
 //hiding the access token
-window.history.pushState({}, document.title,"/Frontend/" + "index.html");
+window.history.pushState({}, document.title,"/YoutubeFilteredDeployment/index.html");
 
 
 //storing user data
