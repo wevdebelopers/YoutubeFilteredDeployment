@@ -130,8 +130,10 @@ async function getSubscription(){
 
     getChannel(returnedData);
 
-    if(channelCount + returnedData.pageInfo.resultsPerPage == returnedData.pageInfo.totalResults)
-      k = 101;
+    if(returnedData.nextPageToken)
+      continue;
+    else
+      break;
   }
 } 
 getSubscription().catch(error => {
