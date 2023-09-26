@@ -98,7 +98,10 @@ fetch("https://www.googleapis.com/oauth2/v3/userinfo",{
 })
 .then((data) => data.json())
 .then((info) => {
-  console.log(info);
+  if(info.error === 'invalid_request')
+  {
+    logout();
+  }
   document.getElementById('image').setAttribute('src', info.picture);
   document.getElementById('accountName').textContent = info.name;
 })
